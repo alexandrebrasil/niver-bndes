@@ -16,12 +16,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id="popover">
-        <div class="close"><a href="javascript:void(0)" alt="Fechar">x</a></div>
-        <div class="niver">
-            <div class="top">
-                <div class="mensagem">
-                    <div class="como">
+    <script>
+        $(function() {
+            $('body').css('overflow', 'hidden');
+            $('#popover .close a').on('click', fecharPopover);
+            $('body').on('keydown', function(e) {
+                if(e.keyCode === 27) {
+                    fecharPopover();
+                }
+            });
+        })
+        
+        function fecharPopover() {
+            $('#popover').addClass('hidden')
+            $('body').css('overflow', 'auto');
+        }
+    </script>
+        <div id="popover">
+            <div class="close"><a href="javascript:fecharPopover()" alt="Fechar">x</a></div>
+            <div class="niver">
+                <div class="top">
+                    <div class="mensagem">
+                        <div class="como">
                         <p>Como vamos comemorar os 66 anos do BNDES?</p>
                         <p>Da mesma maneira de&nbsp;todos os dias:</p>
                         <p>desenvolvendo o país.</p>
@@ -35,7 +51,7 @@
                 <div class="mosaico">
                     <div class="linha">
                         <div class="m_1_1">
-                            <img class="cataventos">
+                            <div class="cataventos"></div>
                         </div>
                         <div class="m_1_2">
                             Apoio a
@@ -49,11 +65,11 @@
                             <span>
                                 <span class="numero">83.029</span>
                                 micro, pequenas e médias<br>
-                                empresas apoiadas.
+                                empresas apoiadas só em 2017.
                             </span>
                         </div>
                         <div class="m_2_2">
-                            <img class="mpme">
+                            <div class="mpme"></div>
                         </div>
                         <div class="m_2_3"></div>
                     </div>
@@ -62,9 +78,8 @@
             <div class="rodape">
                 <span class="mensagem">Onde&nbsp;tem&nbsp;BNDES, tem&nbsp;desenvolvimento.</span>
 
-                <img class="pin">
-                <img class="bndes">
-                <img class="governoFederal">
+                <div class="pin"></div>
+                <div class="governoFederal"></div>
             </div>
         </div>
     </div>
