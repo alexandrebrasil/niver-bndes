@@ -18,20 +18,9 @@
         box-sizing: border-box;
     }
 
-    &.exibe {
-        height: 100vh;
-        opacity: 1;
-        transition: opacity 5.7s ease-in;
-
-        * {
-            opacity: 1;
-            transition: opacity 5.7s ease-in;
-        }
-    }
-
     .niver {
         font-family: 'Fira Sans', arial, sans-serif;
-        font-size: 19px;
+        font-size: 18px;
         
         width: 80%;
         margin: calc((100vh - 627px) / 2) auto;
@@ -70,20 +59,46 @@
             display: flex;
             flex-flow: row nowrap;
             
+            @media screen and (max-width: 1210px) {
+                flex-flow: column;
+            }
+
             .mensagem {
                 flex: 50%;
                 
                 position: relative;
                 padding: 80px 0px 0px 75px;
 
+                @media screen and (max-width: 1210px) {
+                    padding: 30px 0px 0px 40px;
+                }
+
                 .como {
                     font-size: 2.5em;
                     font-style: italic;
                     font-weight: 500;
                     line-height: 0.9;
+                    
+                    @media screen and (max-width: 1440px) {
+                        font-size: 2.1em;
+                    }
+
+                    p {
+                        margin: 0px;
+                        max-width: 11.5em;
+
+                        @media screen and (max-width: 1210px) {
+                            max-width: 100%;
+                        }
+                    }
                 }
+
                 .data {
                     padding-top: 30px;
+
+                    p {
+                        margin: 0px;
+                    }
                 }
 
                 &:after {
@@ -95,6 +110,12 @@
                     position: absolute;
                     right: 0;
                     bottom: 0;
+
+                    @media screen and (max-width: 1210px) {
+                        right: unset;
+                        left: 0px;
+                        height: 15px;
+                    }
                 }
             }
 
@@ -107,6 +128,11 @@
                 flex-direction: column;
                 align-items: stretch;
                 justify-content: stretch;
+
+                @media screen and (max-width: 1210px) {
+                    flex-direction: row;
+                    padding-bottom: 0px;
+                }
 
                 &:after {
                     content: ' ';
@@ -125,14 +151,19 @@
                     display: flex;
                     flex-direction: row;
                     align-items: stretch;
+
+                    @media screen and (max-width: 1210px) {
+                        align-items: flex-end;
+                    }
+
                     .m_1_2, 
                     .m_2_2 {
-                        width: calc((100% - 75px) * 0.45);
+                        width: 195px;
                     }
-    
+                    
                     .m_1_1, 
                     .m_2_1 {
-                        width: calc((100% - 75px) * 0.55);
+                        flex-grow: 1;
                         position: relative;
     
                         &:before {
@@ -190,23 +221,35 @@
 
                     .m_1_3 {
                         flex: 0 0 75px;
+
+                        @media screen and (max-width: 1499px) {
+                            display: none;
+                        }
                     }
     
                     .m_2_1 {
-                        padding: 40px 55px 30px;
                         background: linear-gradient(to bottom, #00569b, #004d8b);
+                        text-align: center;
+                        padding: 40px 55px 30px;
     
                         &:after {
                             border-width: 0px 0px 1px 1px;
                             transform: translate(50%, 50%) translateX(1px) rotate(45deg);
                         }
-    
-                        .numero {
-                            font-size: 4em;
-                            font-weight: 700;
-                            line-height: 0.9;
-                            color: #37b343;
+
+                        > span {
+                            display: inline-block;
+                            text-align: right;
+                            
+                            .numero {
+                                display: block;
+                                font-size: 4em;
+                                font-weight: 700;
+                                line-height: 0.9;
+                                color: #37b343;
+                            }
                         }
+    
                     }
     
                     .m_2_2 {
@@ -214,7 +257,7 @@
                         overflow: hidden;
     
                         img {
-                            height: 100%;
+                            height: 195px;
                             width: 100%;
                         }
                     }
@@ -222,6 +265,10 @@
                     .m_2_3 {
                         background: linear-gradient(to bottom, #0476bd, #0076be);
                         flex: 0 0 75px;
+
+                        @media screen and (max-width: 1499px) {
+                            display: none;
+                        }
                     }
                 }
 

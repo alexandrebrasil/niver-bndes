@@ -15,6 +15,10 @@ function alturaMosaico() {
         altura = mosaico.height(),
         linhas = mosaico.find('.linha');
     
-    linhas.eq(0).css('height', `${altura * 0.57}px`);
-    linhas.eq(1).css('height', `${altura * 0.43}px`);
+    if($(document).width() > 1210) {
+        linhas.eq(0).css('height', `${altura * 0.57}px`);
+        linhas.eq(1).css('height', `${altura * 0.43}px`);
+    } else {
+        linhas.css('height', '');
+    }
 }
