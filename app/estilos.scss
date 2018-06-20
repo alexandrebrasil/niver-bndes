@@ -267,7 +267,10 @@
     
                     
                     .m_1_2 {
-                        background: linear-gradient(to bottom, #03974d, #009a4d);
+                        background: url('./imagens/catavento.png'),
+                                    linear-gradient(to bottom, #03974d, #009a4d);
+                        background-position: right bottom;
+                        background-repeat: no-repeat;
                         padding: 30px;
 
                         display: flex;
@@ -299,11 +302,15 @@
                     }
     
                     .m_2_1 {
-                        background: linear-gradient(to bottom, #00569b, #004d8b);
+                        background: url('./imagens/maleta.png'),
+                                    linear-gradient(to bottom, #00569b, #004d8b);
                         padding: 40px 55px 30px;
                         display: flex;
                         justify-content: center;
                         height: 195px;
+
+                        background-repeat: no-repeat;
+                        background-position: top right;
 
                         &:after {
                             border-width: 0px 0px 1px 1px;
@@ -364,6 +371,7 @@
                     .m_2_3 {
                         background: linear-gradient(to bottom, #0476bd, #0076be);
                         flex: 0 0 75px;
+                        height: 195px;
 
                         @media screen and (max-width: 1499px) {
                             display: none;
