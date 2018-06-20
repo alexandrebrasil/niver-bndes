@@ -11,6 +11,8 @@
     background: rgba(0, 0, 0, 0.8);
 
     z-index: 99;
+    overflow: auto;
+    line-height: normal;
 
     &.hidden {
         display: none;
@@ -23,7 +25,7 @@
     .close {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 25px;
 
         width: 20px;
         height: 20px;
@@ -33,7 +35,7 @@
         border-radius: 50%;
         background: #00549a;
 
-        padding: 3px 5px;
+        padding: 4px 2px 0px 5.5px;
         line-height: 0.7;
         font-size: 0.8em;
         border: 1px solid white;
@@ -48,13 +50,18 @@
         width: 80%;
         max-height: 100%;
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
         position: relative;
 
         margin: 0px auto;
 
         @media screen and (min-height: 627px) {
             margin: calc((100vh - 627px) / 2) auto;
+        }
+
+        @media screen and (max-width: 610px) {
+            max-height: unset;
+            width: 90%;
         }
 
         .top {
@@ -73,16 +80,20 @@
                 flex: 50%;
                 
                 position: relative;
-                padding: 80px 0px 0px 75px;
+                padding: 80px 20px 0px 75px;
 
                 @media screen and (max-width: 1210px) {
-                    padding: 30px 0px 0px 40px;
+                    padding: 30px 20px 0px 40px;
                 }
 
+                @media screen and (max-width: 550px) {
+                    font-size: 0.9em;
+                }
+    
                 .como {
                     font-size: 2.5em;
                     font-style: italic;
-                    font-weight: 500;
+                    font-weight: 700;
                     line-height: 0.9;
                     
                     @media screen and (max-width: 1440px) {
@@ -120,7 +131,12 @@
                     @media screen and (max-width: 1210px) {
                         right: unset;
                         left: 0px;
+                        bottom: 5px;
                         height: 5px;
+                    }
+
+                    @media screen and (max-width: 860px) {
+                        display: none;
                     }
                 }
             }
@@ -138,6 +154,14 @@
                 @media screen and (max-width: 1210px) {
                     flex-direction: row;
                     padding-bottom: 0px;
+                }
+                
+                @media screen and (max-width: 670px) {
+                    font-size: 0.9em;
+                }
+
+                @media screen and (max-width: 479px) {
+                    font-size: 0.8em;
                 }
 
                 &:after {
@@ -162,7 +186,7 @@
                     flex-direction: row;
                     align-items: stretch;
 
-                    @media screen and (max-width: 1210px) {
+                    @media screen and (min-width: 861px) and (max-width: 1210px) {
                         align-items: flex-end;
                     }
 
@@ -205,6 +229,10 @@
                         display: flex;
                         align-items: flex-end;
                         justify-content: flex-end;
+
+                        @media screen and (max-width: 860px) {
+                            display: none;
+                        }
     
                         &:after,
                         &:before {
@@ -221,7 +249,20 @@
                     .m_1_2 {
                         background: linear-gradient(to bottom, #03974d, #009a4d);
                         padding: 30px;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
                         
+                        @media screen and (max-width: 860px) {
+                            width: 100%;
+                            padding-left: 40px;
+                        }
+
+                        @media screen and (max-width: 550px) {
+                            padding-bottom: 10px;
+                        }
+
                         .numero {
                             font-size: 4em;
                             font-weight: 700;
@@ -239,12 +280,37 @@
     
                     .m_2_1 {
                         background: linear-gradient(to bottom, #00569b, #004d8b);
-                        text-align: center;
                         padding: 40px 55px 30px;
-    
+                        display: flex;
+                        justify-content: center;
+
                         &:after {
                             border-width: 0px 0px 1px 1px;
                             transform: translate(50%, 50%) translateX(1px) rotate(45deg);
+                        }
+
+                        @media screen and (max-width: 1100px) {
+                            justify-content: flex-end;
+                            align-items: flex-end;
+
+                            &:after,
+                            &:before {
+                                display: none;
+                            }
+                        }
+
+                        @media screen and (max-width: 860px) {
+                            justify-content: flex-end;
+                        }
+                        @media screen and (max-width: 680px) {
+                            padding: 30px;
+                        }
+                        @media screen and (max-width: 550px) {
+                            padding-bottom: 10px;
+                        }
+
+                        @media screen and (max-width: 430px) {
+                            padding-left: 10px;
                         }
 
                         > span {
@@ -265,7 +331,11 @@
                     .m_2_2 {
                         display: flex;
                         overflow: hidden;
-    
+
+                        @media screen and (max-width: 1100px) {
+                            display: none;
+                        }
+
                         img {
                             height: 195px;
                             width: 100%;
@@ -297,6 +367,32 @@
 
             position: relative;
 
+            @media screen and (max-width: 1210px) {
+                padding: 30px 20px 0px 40px;
+            }
+
+            @media screen and (max-width: 860px) {
+                padding: 15px 20px 0px 40px;
+            }
+
+            @media screen and (max-width: 680px) {
+                height: 157px;
+            }
+
+            @media screen and (max-width: 600px) {
+                font-size: 1.3em;
+            }
+
+
+            .mensagem {
+                display: inline-block;
+                max-width: 200px;
+
+                @media screen and (max-width: 860px) {
+                    max-width: unset;
+                }
+            }
+
             .pin {
                 position: absolute;
                 bottom: 100px;
@@ -304,15 +400,24 @@
 
                 width: 80px;
                 height: 135px;
+
+                @media screen and (max-width: 860px) {
+                    display: none;
+                }
             }
 
             .bndes {
-                width: 120px;
-                height: 30px;
+                content: url('./imagens/bndes-white.png');
             
                 position: absolute;
                 bottom: 45px;
                 right: 210px;
+
+                @media screen and (max-width: 860px) {
+                    bottom: 15px;
+                    right: unset;
+                    left: 40px;
+                }
             }
 
             .governoFederal {
@@ -322,6 +427,10 @@
                 position: absolute;
                 bottom: 45px;
                 right: 45px;
+
+                @media screen and (max-width: 860px) {
+                    bottom: 15px;
+                }
             }
         }
     }
