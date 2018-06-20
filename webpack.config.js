@@ -1,6 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: 'production',
@@ -12,11 +13,15 @@ module.exports = {
         rules: [{
             test: /\.scss$/,
             use: [
-                "style-loader", // creates style nodes from JS strings
+                MiniCssExtractPlugin.loader,
                 "css-loader", // translates CSS into CommonJS
                 "sass-loader" // compiles Sass to CSS
             ]
-        }]
+        }, {
+            test: /\.png$/, 
+            use: 'url-loader'
+        }
+    ]
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -24,6 +29,9 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery'
-        })
+        }),
+        new MiniCssExtractPlugin({
+			filename: "styles.css"
+		})
     ]
 }
