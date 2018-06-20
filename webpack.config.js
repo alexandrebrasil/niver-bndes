@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
     mode: 'production',
@@ -20,6 +21,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './app/index.html'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
         })
     ]
 }
